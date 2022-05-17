@@ -414,16 +414,6 @@ func testTransactionInBlockInterrupted(t *testing.T, client *rpc.Client) {
 	}
 }
 
-func testChainID(t *testing.T, client *rpc.Client) {
-	ec := NewClient(client)
-	id, err := ec.ChainID(context.Background())
-	if err != nil {
-		t.Fatalf("unexpected error: %v", err)
-	}
-	if id == nil || id.Cmp(params.AllEthashProtocolChanges.ChainID) != 0 {
-		t.Fatalf("ChainID returned wrong number: %+v", id)
-	}
-}
 
 func testGetBlock(t *testing.T, client *rpc.Client) {
 	ec := NewClient(client)
